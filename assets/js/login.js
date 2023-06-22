@@ -1,4 +1,4 @@
-function logueo() {
+function f() {
   // Datos del formulario
   var correo = document.getElementById("email").value;
   var contrasena = document.getElementById("password").value;
@@ -31,7 +31,7 @@ function logueo() {
     }).catch(console.log)
 }
 
-function f() {
+function logueo() {
   var correo = document.getElementById("email").value;
   var contrasena = document.getElementById("password").value;
   console.log(correo + "  " + contrasena);
@@ -44,17 +44,18 @@ function f() {
   fetch('http://SistemaCovid-19.somee.com/Usuarios/login/', {
     method: 'POST',
     headers: {
-      'Content-Type': 'application/json',
-      'Accept': '*/*'
+      'Content-Type': 'application/json'
     },
     body: JSON.stringify(solicitud)
   })
     .then(response => response.json())
     .then(data => {
       // Verificar la respuesta
-      if (data.IsSuccessful) {
+      console.log();
+      if (data == true) {
         console.log('Inicio de sesión exitoso');
         console.log('Usuario:', data.User);
+        window.location = 'index.html';
       } else {
         console.log('Credenciales inválidas');
       }
