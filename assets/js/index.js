@@ -4,5 +4,4 @@ function validateLogin() {
       window.location.href = "login.html";
     } 
   }
-  
   validateLogin();
